@@ -3,7 +3,7 @@
             [compojure.core :refer :all]
             [compojure.handler :as handler]))
 
-(defroutes handler
+(defroutes app-routes
   (GET "/" []
        (assert false)
        "*ok*"))
@@ -16,7 +16,7 @@
            {:status 500 :body "We're sorry, something went wrong."}))))
 
 (def app
-  (-> handler wrap-exception handler/site))
+  (-> app-routes wrap-exception handler/site))
 
 (def port 3000)
 
